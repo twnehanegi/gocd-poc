@@ -20,12 +20,13 @@ GoCD.script {
                         'BERKS_UPDATE':'false',
                         'CHEF_ENV': targetenv
                 ]
+                def environment = build.getEnvironment(listener).get('ENV')
                 materials {
                     git {
                         branch = 'main'
                         url = 'git@github.com:twnehanegi/gocd-poc.git'
                         blacklist = ['**/*']
-                        name = 'material-'+ $environmentVariables.ENV
+                        name = 'material-'+ environment
                     }
                 }
                 stages {
