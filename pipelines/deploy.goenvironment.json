@@ -1,0 +1,13 @@
+{
+    "name": "deploy",
+    "format_version": 3,
+    "agent": [
+    ],
+    "pipelines": [
+        "qa-tenant5",
+        "qa12-tenant5"
+    ],
+    "environment_variables": [
+
+    ]
+}
