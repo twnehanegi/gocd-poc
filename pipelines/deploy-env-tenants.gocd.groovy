@@ -20,7 +20,7 @@ GoCD.script {
                         'BERKS_UPDATE':'false',
                         'CHEF_ENV': targetenv
                 ]
-                def environment = build.getEnvironment(listener).get('ENV')
+                def environment = environmentVariables.ENV
                 materials {
                     git {
                         branch = 'main'
