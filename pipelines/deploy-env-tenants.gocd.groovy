@@ -25,7 +25,7 @@ GoCD.script {
                         branch = 'main'
                         url = 'git@github.com:twnehanegi/gocd-poc.git'
                         blacklist = ['**/*']
-                        name = 'material0'
+                        name = 'material-$environmentVariables.CHEF_ENV'
                     }
                 }
                 stages {
