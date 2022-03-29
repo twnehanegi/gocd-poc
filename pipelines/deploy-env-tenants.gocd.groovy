@@ -24,7 +24,7 @@ GoCD.script {
                 materials {
                     git {
                         branch = 'main'
-                        url = 'https://github.com/twnehanegi/gocd-poc.git'
+                        url = 'git@github.com:twnehanegi/gocd-poc.git'
                         blacklist = ['**/*']
                         name = 'material-'+ environment
                     }
