@@ -26,24 +26,16 @@ GoCD.script {
                         url = 'https://github.com/twnehanegi/gocd-poc.git'
                         blacklist = ['**/*']
                         name = 'material0-'+ environment
-                        destination = "main"
                     }
-                    git {
-                        branch = 'branch2'
-                        url = 'https://github.com/twnehanegi/gocd-poc.git'
-                        blacklist = ['**/*']
-                        name = 'material1-'+ environment
-                        destination = "branch2"
-                    }
-                    dependency('trigger') {
-                        pipeline = "Test-pipeline"
-                        stage = 'Test-stage'
-                        name = 'material2'
-                    }
-                    dependency('trigger') {
-                        pipeline = "NewTest-pipeline"
-                        stage = 'Test-stage'
-                        name = 'material4'
+                    pipelines {
+                        pipeline("Test-pipeline") {
+                            stage = 'Test-stage'
+                            name = 'material4'
+                        }
+                        pipeline("NewTest-pipeline") {
+                            stage = 'Test-stage'
+                            name = 'material4'
+                        }
                     }
                 }
                 stages {
