@@ -51,6 +51,10 @@ GoCD.script {
                                         pipeline = 'Test-pipeline'
                                         stage = 'Test-stage'
                                         runIf = 'any'
+                                        job = 'Test-job'
+                                        source = 'cruise-output/console.log'
+                                        artifactOrigin = 'gocd'
+                                        isFile = true
                                     }
                                 }
                                 if (environment == 'RELEASE') {
@@ -58,6 +62,10 @@ GoCD.script {
                                         pipeline = 'NewTest-pipeline'
                                         stage = 'Test-stage'
                                         runIf = 'any'
+                                        job = 'Test-job'
+                                        source = 'cruise-output/console.log'
+                                        artifactOrigin = 'gocd'
+                                        isFile = true
                                     }
                                 }
 
