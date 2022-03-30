@@ -51,7 +51,7 @@ GoCD.script {
                                 tasks {
                                     exec {
                                         runIf = 'passed'
-                                        commandLine = ["/bin/sh", "echo $environment"]
+                                        commandLine = ["echo", "$environment"]
                                     }
                                     if (environment == 'DEV') {
                                         fetchArtifact{
