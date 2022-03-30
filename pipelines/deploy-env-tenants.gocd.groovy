@@ -1,10 +1,9 @@
-def allEnvs = ['qa-tenant5',
-        'qa12-tenant5'];
+def allEnvs = ['poc'];
 
 GoCD.script {
     pipelines {
         allEnvs.each {  env ->
-            pipeline("$env") {
+            pipeline("$env-environment") {
                 def targetenv = env.split('-')[0]
                 group = 'deploy'
                 environmentVariables = [
