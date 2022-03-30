@@ -35,6 +35,16 @@ GoCD.script {
                         name = 'material1-'+ environment
                         destination = "branch2"
                     }
+                    dependency('trigger') {
+                        pipeline = "Test-pipeline"
+                        stage = 'Test-stage'
+                        name = 'material2'
+                    }
+                    dependency('trigger') {
+                        pipeline = "NewTest-pipeline"
+                        stage = 'Test-stage'
+                        name = 'material4'
+                    }
                 }
                 stages {
                     stage('deploy') {
