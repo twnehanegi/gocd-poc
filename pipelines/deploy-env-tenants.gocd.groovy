@@ -27,15 +27,18 @@ GoCD.script {
                         blacklist = ['**/*']
                         name = 'material0-'+ environment
                     }
-                    pipeline("Test-pipeline") {
+                    dependency('build') {
+                        pipeline = "Test-pipeline"
                         stage = 'Test-stage'
+                        ignore_for_scheduling = true
                         name = 'material1'
                     }
-                    pipeline("NewTest-pipeline") {
+                    dependency('build') {
+                        pipeline = "NewTest-pipeline"
                         stage = 'Test-stage'
+                        ignore_for_scheduling = true
                         name = 'material2'
                     }
-
                 }
                 stages {
                     stage('deploy') {
