@@ -46,6 +46,21 @@ GoCD.script {
                         cleanWorkingDir = false
                         jobs {
                             job('deploy') {
+                                if (environment == 'DEV') {
+                                    fetchArtifact{
+                                        pipeline = 'Test-pipeline'
+                                        stage = 'Test-stage'
+                                        runIf = 'any'
+                                    }
+                                }
+                                if (environment == 'RELEASE') {
+                                    fetchArtifact{
+                                        pipeline = 'NewTest-pipeline'
+                                        stage = 'Test-stage'
+                                        runIf = 'any'
+                                    }
+                                }
+
                                 tasks {
                                     exec {
                                         runIf = 'passed'
