@@ -30,13 +30,11 @@ GoCD.script {
                     dependency('build') {
                         pipeline = "Test-pipeline"
                         stage = 'Test-stage'
-                        ignore_for_scheduling = true
                         name = 'material1'
                     }
                     dependency('build') {
                         pipeline = "NewTest-pipeline"
                         stage = 'Test-stage'
-                        ignore_for_scheduling = true
                         name = 'material2'
                     }
                 }
