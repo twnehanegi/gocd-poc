@@ -72,7 +72,7 @@ GoCD.script {
                                 tasks {
                                     exec {
                                         runIf = 'passed'
-                                        commandLine = ["/bin/sh", "echo \"Your current working directory is:\""]
+                                        commandLine = ["/bin/sh", "echo $environment"]
                                     }
                                 }
                                 runInstanceCount = null
