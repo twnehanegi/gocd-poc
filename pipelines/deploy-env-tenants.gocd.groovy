@@ -24,9 +24,19 @@ GoCD.script {
                 materials {
                     git {
                         branch = 'main'
-                        url = 'git@github.com:twnehanegi/gocd-poc.git'
+                        url = 'https://github.com/twnehanegi/gocd-poc.git'
                         blacklist = ['**/*']
-                        name = 'material-'+ environment
+                        name = 'material0-'+ environment
+                        username = "neha.negi@thoughtworks.com"
+                        password = "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"
+                    }
+                    git {
+                        branch = 'branch2'
+                        url = 'https://github.com/twnehanegi/gocd-poc.git'
+                        blacklist = ['**/*']
+                        name = 'material1-'+ environment
+                        username = "neha.negi@thoughtworks.com"
+                        password = "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"
                     }
                 }
                 stages {
