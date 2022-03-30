@@ -53,17 +53,29 @@ GoCD.script {
                                         runIf = 'passed'
                                         commandLine = ["/bin/sh", "echo $environment"]
                                     }
+                                    if (environment == 'DEV') {
+                                        fetchArtifact{
+                                            pipeline = 'Test-pipeline'
+                                            stage = 'Test-stage'
+                                            runIf = 'any'
+                                            job = 'Test-job'
+                                            source = 'cruise-output/console.log'
+                                            artifactOrigin = 'gocd'
+                                            isFile = true
+                                        }
+                                    }
+                                    if (environment == 'RELEASE') {
+                                        fetchArtifact{
+                                            pipeline = 'NewTest-pipeline'
+                                            stage = 'Test-stage'
+                                            runIf = 'any'
+                                            job = 'Test-job'
+                                            source = 'cruise-output/console.log'
+                                            artifactOrigin = 'gocd'
+                                            isFile = true
+                                        }
                                 }
-                                fetchArtifact{
-                                    pipeline = 'NewTest-pipeline'
-                                    stage = 'Test-stage'
-                                    runIf = 'any'
-                                    job = 'Test-job'
-                                    source = 'cruise-output/console.log'
-                                    artifactOrigin = 'gocd'
-                                    isFile = true
                                 }
-
                                 runInstanceCount = null
                                 timeout = 60
                             }
