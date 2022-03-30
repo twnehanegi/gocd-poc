@@ -46,28 +46,7 @@ GoCD.script {
                         cleanWorkingDir = false
                         jobs {
                             job('deploy') {
-                                if (environment == 'DEV') {
-                                    fetchArtifact{
-                                        pipeline = 'Test-pipeline'
-                                        stage = 'Test-stage'
-                                        runIf = 'any'
-                                        job = 'Test-job'
-                                        source = 'cruise-output/console.log'
-                                        artifactOrigin = 'gocd'
-                                        isFile = true
-                                    }
-                                }
-                                if (environment == 'RELEASE') {
-                                    fetchArtifact{
-                                        pipeline = 'NewTest-pipeline'
-                                        stage = 'Test-stage'
-                                        runIf = 'any'
-                                        job = 'Test-job'
-                                        source = 'cruise-output/console.log'
-                                        artifactOrigin = 'gocd'
-                                        isFile = true
-                                    }
-                                }
+
 
                                 tasks {
                                     exec {
@@ -75,6 +54,16 @@ GoCD.script {
                                         commandLine = ["/bin/sh", "echo $environment"]
                                     }
                                 }
+                                fetchArtifact{
+                                    pipeline = 'NewTest-pipeline'
+                                    stage = 'Test-stage'
+                                    runIf = 'any'
+                                    job = 'Test-job'
+                                    source = 'cruise-output/console.log'
+                                    artifactOrigin = 'gocd'
+                                    isFile = true
+                                }
+
                                 runInstanceCount = null
                                 timeout = 60
                             }
