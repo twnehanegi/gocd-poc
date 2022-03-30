@@ -27,14 +27,14 @@ GoCD.script {
                         url = 'https://github.com/twnehanegi/gocd-poc.git'
                         blacklist = ['**/*']
                         name = 'material0-'+ environment
-                        destination = main
+                        destination = "main"
                     }
                     git {
                         branch = 'branch2'
                         url = 'https://github.com/twnehanegi/gocd-poc.git'
                         blacklist = ['**/*']
                         name = 'material1-'+ environment
-                        destination = branch2
+                        destination = "branch2"
                     }
                 }
                 stages {
