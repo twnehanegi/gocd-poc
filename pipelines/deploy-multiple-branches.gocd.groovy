@@ -8,6 +8,7 @@ GoCD.script {
             onMatch { ctx ->
                 println("hey!")
                 pipeline("pr-${ctx.branchSanitized}") {
+                    group = 'deploy'
                     materials { add(ctx.repo) }
                     stages {
                         stage('tests') {
